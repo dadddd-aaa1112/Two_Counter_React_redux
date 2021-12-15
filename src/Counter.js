@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { mul, div } from './redux/actions/actions'
 class Counter extends React.Component {
 	render() {
 		return (
-			<div>
+			<div style={{ border: '1px solid #ccc', padding: '10px' }}>
 				<h1>
 					Counter 2 <strong>{this.props.counter}</strong>
 				</h1>
@@ -24,8 +25,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		onMul: () => dispatch({ type: 'MUL' }),
-		onDiv: () => dispatch({ type: 'DIV' }),
+		onMul: () => dispatch(mul()),
+		onDiv: () => dispatch(div()),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)
